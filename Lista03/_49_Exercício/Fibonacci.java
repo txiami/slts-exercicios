@@ -1,4 +1,4 @@
-package _49_Exercício;
+package Lista03._49_Exercício;
 
 public class Fibonacci {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package _46_Exercício;
+package Lista03._46_Exercício;
 
 import java.util.Scanner;
 

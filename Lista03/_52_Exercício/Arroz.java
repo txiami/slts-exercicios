@@ -1,4 +1,4 @@
-package _52_Exercício;
+package Lista03._52_Exercício;
 
 public class Arroz {
     public static void main(String[] args) {
