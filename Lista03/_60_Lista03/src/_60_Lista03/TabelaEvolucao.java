@@ -1,4 +1,4 @@
-package _60_Lista03;
+package Lista03._60_Lista03.src._60_Lista03;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

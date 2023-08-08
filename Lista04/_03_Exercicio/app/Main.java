@@ -1,9 +1,9 @@
-package app;
+package Lista04._03_Exercicio.app;
 
-import animais.Cachorro;
-import animais.Elefante;
-import animais.Gato;
-import animais.Leao;
+import Lista04._03_Exercicio.animais.Cachorro;
+import Lista04._03_Exercicio.animais.Elefante;
+import Lista04._03_Exercicio.animais.Gato;
+import Lista04._03_Exercicio.animais.Leao;
 
 public class Main {
 

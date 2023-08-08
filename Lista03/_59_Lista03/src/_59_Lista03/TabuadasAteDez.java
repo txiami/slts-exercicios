@@ -1,4 +1,4 @@
-package _59_Lista03;
+package Lista03._59_Lista03.src._59_Lista03;
 
 public class TabuadasAteDez {
     public static void main(String[] args) {

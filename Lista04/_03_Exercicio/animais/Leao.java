@@ -1,6 +1,6 @@
-package animais;
+package Lista04._03_Exercicio.animais;
 
-public class Leao extends AnimalAB{
+public class Leao extends AnimalAB {
 	
 public Leao() {
 		

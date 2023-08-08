@@ -1,4 +1,4 @@
-package _24_Lista03;
+package Lista03._24_Lista03.src._24_Lista03;
 import java.util.Scanner;
 
 public class ValidadeData {

@@ -1,4 +1,4 @@
-package _47_Lista03;
+package Lista03._47_Lista03.src._47_Lista03;
 
 
 import java.util.Scanner;
