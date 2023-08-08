@@ -18,7 +18,7 @@ public class ProgramaOperario {
 		System.out.println(operario.getCodigoSetor());
 		System.out.println("\nValor de produção: R$ " + operario.getValorProducao());
 		System.out.print("\nSalário líquido: ");
-		System.out.println("R$ " + operario.calcularSalarioOpe());
+		System.out.println("R$ " + operario.calcularSalario());
 	}
 
 }
