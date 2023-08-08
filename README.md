@@ -25,6 +25,15 @@ Hugo Murilo={3,5}<br>
 Vitor R. Adriano={}<br>
 Thiago Sales={4}<br>
 
+<h2 align="center"> 
+    Lista de Exercícios 06 – HERANÇA POLIMORFISMO
+</h2>
+
+Francivaldo Lima={1,2,3}<br>
+Hugo Murilo={}<br>
+Vitor R. Adriano={}<br>
+Thiago Sales={}<br>
+
 ## Autores
 [<img src="https://avatars.githubusercontent.com/u/54116971?v=4" width=115><br><sub>Francivaldo Lima</sub>](https://github.com/francivaldolima)
 
