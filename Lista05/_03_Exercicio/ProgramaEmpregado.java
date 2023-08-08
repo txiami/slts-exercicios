@@ -9,11 +9,11 @@ public class ProgramaEmpregado {
 		empregado.setSalarioBase(3200);
 		empregado.setImposto(2);
 		
-		System.out.println("Nome: ");
+		System.out.print("Nome: ");
 		System.out.println(empregado.getNome());
-		System.out.println("Código do Setor: ");
+		System.out.print("\nCódigo do Setor: ");
 		System.out.println(empregado.getCodigoSetor());
-		System.out.println("Salário líquido: ");
+		System.out.print("\nSalário líquido: ");
 		System.out.println("R$ " + empregado.calcularSario());
 	}
 
