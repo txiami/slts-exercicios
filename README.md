@@ -21,7 +21,7 @@ Vitor R. Adriano={5}<br>
 </h2>
 
 Francivaldo Lima={1,2}<br>
-Hugo Murilo={3}<br>
+Hugo Murilo={3,5}<br>
 Vitor R. Adriano={}<br>
 Thiago Sales={}<br>
 
