@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/_01_Exercicio" isTestSource="false" packagePrefix="heranca" />
+      <sourceFolder url="file://$MODULE_DIR$/_02_Exercicio" isTestSource="false" packagePrefix="heranca" />
+      <sourceFolder url="file://$MODULE_DIR$/_03_Exercicio" isTestSource="false" packagePrefix="heranca" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
