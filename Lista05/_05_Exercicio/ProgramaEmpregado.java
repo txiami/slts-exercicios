@@ -14,7 +14,7 @@ public class ProgramaEmpregado {
 		System.out.print("\nCódigo do Setor: ");
 		System.out.println(empregado.getCodigoSetor());
 		System.out.print("\nSalário líquido: ");
-		System.out.println("R$ " + empregado.calcularSario());
+		System.out.println("R$ " + empregado.calcularSalario());
 	}
 
 }
