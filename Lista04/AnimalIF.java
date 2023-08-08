@@ -1,11 +1,7 @@
-
-package Lista04._01_Exercicio;
-
+package Lista04;
 
 public interface AnimalIF {
-    
     void comer();
     void moverse();
     void dormir();
-    
 }
