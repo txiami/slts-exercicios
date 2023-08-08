@@ -1,5 +1,5 @@
 
-package oo.avancada;
+package Lista04._01_Exercicio;
 
 
 public interface AnimalIF {

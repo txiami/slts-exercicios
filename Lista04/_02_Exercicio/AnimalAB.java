@@ -1,8 +1,10 @@
 
-package oo.avancada;
+package Lista04._02_Exercicio;
 
 
-public abstract class AnimalAB implements AnimalIF{
+import Lista04._01_Exercicio.AnimalIF;
+
+public abstract class AnimalAB implements AnimalIF {
     
     @Override
     public abstract void comer();
