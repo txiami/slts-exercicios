@@ -31,7 +31,7 @@ Thiago Sales={4}<br>
 
 Francivaldo Lima={1,2,3}<br>
 Hugo Murilo={4}<br>
-Vitor R. Adriano={}<br>
+Vitor R. Adriano={10, 11}<br>
 Thiago Sales={5,6,7}<br>
 
 ## Autores
