@@ -30,7 +30,7 @@ Thiago Sales={4}<br>
 </h2>
 
 Francivaldo Lima={1,2,3}<br>
-Hugo Murilo={4}<br>
+Hugo Murilo={4,8,9}<br>
 Vitor R. Adriano={10, 11}<br>
 Thiago Sales={5,6,7}<br>
 
