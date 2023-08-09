@@ -32,7 +32,7 @@ Thiago Sales={4}<br>
 Francivaldo Lima={1,2,3}<br>
 Hugo Murilo={4}<br>
 Vitor R. Adriano={}<br>
-Thiago Sales={}<br>
+Thiago Sales={5,6,7}<br>
 
 ## Autores
 [<img src="https://avatars.githubusercontent.com/u/54116971?v=4" width=115><br><sub>Francivaldo Lima</sub>](https://github.com/francivaldolima)
