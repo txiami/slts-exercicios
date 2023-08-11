@@ -2,16 +2,15 @@ package br.com.cursopcv.testes;
 
 import br.com.cursopcv.RepositorioProduto.RepositorioProduto;
 import br.com.cursopcv.modelo.Produto;
-
+import java.util.Arrays;
+import java.util.List;
 
 public class InclusaoDeProduto {
 
     public static void main(String[] args) {
-
         RepositorioProduto repProduto = new RepositorioProduto();
 
         Produto prop = new Produto();
-
         prop.setNome("Panela");
         prop.setDescricao("Panela de Pressão 10 Litros");
         prop.setPreco(56.80);
@@ -26,22 +25,20 @@ public class InclusaoDeProduto {
         prop3.setDescricao("Caixa de Som JBL");
         prop3.setPreco(160.00);
 
-        repProduto.salvar(prop);
-        repProduto.salvar(prop2);
-        repProduto.salvar(prop3);
+        List<Produto> produtos = Arrays.asList(prop, prop2, prop3);
+        repProduto.salvar(produtos);
 
         System.out.println("Registro da Tabela Produto a ser Salvado");
         System.out.println("##########################################");
-        Produto[] produtos = { prop, prop2, prop3 };
+
         for (Produto produto : produtos) {
             System.out.println("Nome: " + produto.getNome());
             System.out.println("Descrição: " + produto.getDescricao());
             System.out.println("------------------------------------------");
         }
+
         System.out.println("##########################################");
-
-        repProduto.fecharEntityManager();
     }
-
 }
+
 

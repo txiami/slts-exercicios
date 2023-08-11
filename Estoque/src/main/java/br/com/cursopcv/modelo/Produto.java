@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cod;
+    private int cod;
 
     private String nome;
     private String descricao;
@@ -25,11 +25,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public Long getCod() {
+    public int getCod() {
         return cod;
     }
 
-    public void setCod(Long cod) {
+    public void setCod(int cod) {
         this.cod = cod;
     }
 
