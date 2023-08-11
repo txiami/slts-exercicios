@@ -38,10 +38,10 @@ Thiago Sales={5,6,7}<br>
     Lista de Exercícios 07 – HIBERNATE
 </h2>
 
-Francivaldo Lima={Configurações do Hibernate e Cadastro do produto}<br>
+Francivaldo Lima={Configurações do Hibernate , Cadastrar Produto e Remoção de  Produto }<br>
 Hugo Murilo={}<br>
-Vitor R. Adriano={}<br>
-Thiago Sales={}<br>
+Vitor R. Adriano={Listar todos Produtos}<br>
+Thiago Sales={Alteração de Produto}<br>
 
 ## Autores
 [<img src="https://avatars.githubusercontent.com/u/54116971?v=4" width=115><br><sub>Francivaldo Lima</sub>](https://github.com/francivaldolima)

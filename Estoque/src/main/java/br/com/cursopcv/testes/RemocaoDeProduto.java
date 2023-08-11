@@ -3,9 +3,7 @@ package br.com.cursopcv.testes;
 import br.com.cursopcv.RepositorioProduto.RepositorioProduto;
 import br.com.cursopcv.modelo.Produto;
 
-
-public class InclusaoDeProduto {
-
+public class RemocaoDeProduto {
     public static void main(String[] args) {
 
         RepositorioProduto repProduto = new RepositorioProduto();
@@ -40,8 +38,26 @@ public class InclusaoDeProduto {
         }
         System.out.println("##########################################");
 
+
+        System.out.println("");
+        System.out.println("Buscando produto...");
+        Produto produto = repProduto.obterPorCod(3L);
+
+        System.out.println(produto);
+
+        if (produto != null) {
+            System.out.println("Registro da Tabela Produto a ser Deletado");
+            System.out.println("##########################################");
+            System.out.println("Nome: " + produto.getNome());
+            System.out.println("Descrição: " + produto.getDescricao());
+            System.out.println("##########################################");
+
+            repProduto.remove(produto);
+        } else {
+            System.out.println("Produto não encontrado.");
+        }
+
         repProduto.fecharEntityManager();
+
     }
-
 }
-
