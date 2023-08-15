@@ -3,6 +3,7 @@ package com.solutis.locadoraveiculos.controller;
 import com.solutis.locadoraveiculos.entity.Funcionario;
 import com.solutis.locadoraveiculos.entity.Motorista;
 import com.solutis.locadoraveiculos.service.CadastroClienteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,7 @@ public class CadastroClienteController {
     }
 
     @PostMapping("/motorista")
-    public ResponseEntity<Motorista> criarMotorista(@RequestBody Motorista motorista) {
+    public ResponseEntity<Motorista> criarMotorista(@RequestBody @Valid Motorista motorista) {
         Motorista novoMotorista = (Motorista) cadastroClienteService.salvarPessoa(motorista);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(novoMotorista.getId()).toUri();
@@ -33,7 +34,7 @@ public class CadastroClienteController {
     }
 
     @PostMapping("/funcionario")
-    public ResponseEntity<Funcionario> criarFuncionario(@RequestBody Funcionario funcionario) {
+    public ResponseEntity<Funcionario> criarFuncionario(@RequestBody @Valid Funcionario funcionario) {
         Funcionario novoFuncionario = (Funcionario) cadastroClienteService.salvarPessoa(funcionario);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(novoFuncionario.getId()).toUri();
