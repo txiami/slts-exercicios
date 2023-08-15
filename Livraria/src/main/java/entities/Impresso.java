@@ -33,10 +33,14 @@ public class Impresso extends Livro implements Serializable {
 
 
     public Impresso(
-            int indice, String titulo, String autores,
-            String editora, float preco, float frete, int estoque
+            String titulo,
+            String autores,
+            String editora,
+            float preco,
+            float frete,
+            int estoque
     ) {
-        super(indice, titulo, autores, editora, preco);
+        super(titulo, autores, editora, preco);
         this.frete = frete;
         this.estoque = estoque;
     }

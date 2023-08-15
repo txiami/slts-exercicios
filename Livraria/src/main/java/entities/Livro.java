@@ -10,7 +10,6 @@ public abstract class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    protected int indice;
     protected String titulo, autores, editora;
     protected float preco;
 
@@ -18,8 +17,7 @@ public abstract class Livro {
 
     }
 
-    public Livro(int indice, String titulo, String autores, String editora, float preco) {
-        this.indice = indice;
+    public Livro(String titulo, String autores, String editora, float preco) {
         this.titulo = titulo;
         this.autores = autores;
         this.editora = editora;

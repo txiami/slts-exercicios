@@ -18,10 +18,10 @@ public class LivrariaVirtual {
     private final EntityManager em;
 
     @OneToMany
-    private Impresso[] impressos = new Impresso[MAX_IMPRESSOS];
+    private List<Impresso> impressos = new ArrayList<>();
 
     @OneToMany
-    private Eletronico[] eletronicos = new Eletronico[MAX_ELETRONICOS];
+    private List<Eletronico> eletronicos = new ArrayList<>();
 
     @OneToMany
     private List<Venda> vendas = new ArrayList<>();
@@ -31,6 +31,7 @@ public class LivrariaVirtual {
     public LivrariaVirtual() {
         em = ConnectionFactory.getEntityManager();
     }
+
     public void cadastrarLivro() {
         System.out.println("Escolha o tipo de livro a ser cadastrado:");
         System.out.println("1. Impresso");
@@ -53,32 +54,32 @@ public class LivrariaVirtual {
         String editora = scanner.nextLine();
         System.out.print("Preço: ");
         float preco = scanner.nextFloat();
-        System.out.print("Índice: ");
-        int index = scanner.nextInt();
         scanner.nextLine();
 
         if (tipo == 1 || tipo == 3) {
-            cadastrarLivroImpresso(index, titulo, autores, editora, preco);
+            cadastrarLivroImpresso(titulo, autores, editora, preco);
         }
 
         if (tipo == 2 || tipo == 3) {
-            index = tipo == 3 ? index + 1 : index;
-            cadastrarLivroEletronico(index, titulo, autores, editora, preco);
+            cadastrarLivroEletronico(titulo, autores, editora, preco);
         }
     }
 
     private void cadastrarLivroImpresso(
-            int index, String titulo, String autores, String editora, float preco
-    ) {
-        if(index <= MAX_IMPRESSOS && impressos[index - 1] == null) {
+            String titulo,
+            String autores,
+            String editora,
+            float preco) {
+        if (impressos.size() < 9) {
             System.out.print("Frete: ");
             float frete = scanner.nextFloat();
             System.out.print("Estoque: ");
             int estoque = scanner.nextInt();
             scanner.nextLine();
 
-            Impresso impresso = new Impresso(index, titulo, autores, editora, preco, frete, estoque);
-            impressos[index - 1] = impresso;
+            Impresso impresso = new Impresso(titulo, autores, editora, preco, frete, estoque);
+
+            impressos.add(impresso);
 
             em.getTransaction().begin();
             em.persist(impresso);
@@ -86,26 +87,35 @@ public class LivrariaVirtual {
 
             System.out.println("Livro impresso cadastrado com sucesso. \n");
         } else {
-            System.out.println("Índice maior ou indisponível no momento.");
+            System.out.println("Cadastro indisponível. Temos muitos livros impressos cadastrados no momento.");
         }
 
     }
 
     private void cadastrarLivroEletronico(
-            int index, String titulo, String autores, String editora, float preco
+            String titulo,
+            String autores,
+            String editora,
+            float preco
     ) {
-        System.out.print("Tamanho (KB): ");
-        int tamanho = scanner.nextInt();
-        scanner.nextLine();
 
-        Eletronico eletronico = new Eletronico(index, titulo, autores, editora, preco, tamanho);
-        eletronicos[index - 1] = eletronico;
+        if (eletronicos.size() < 19) {
+            System.out.print("Tamanho (KB): ");
+            int tamanho = scanner.nextInt();
+            scanner.nextLine();
 
-        em.getTransaction().begin();
-        em.persist(eletronico);
-        em.getTransaction().commit();
+            Eletronico eletronico = new Eletronico(titulo, autores, editora, preco, tamanho);
+            eletronicos.add(eletronico);
 
-        System.out.println("Livro eletrônico cadastrado com sucesso. \n");
+            em.getTransaction().begin();
+            em.persist(eletronico);
+            em.getTransaction().commit();
+
+            System.out.println("Livro eletrônico cadastrado com sucesso. \n");
+        }else{
+            System.out.println("Cadastro indisponível. Temos muitos livros eletronicos cadastrados no momento.");
+        }
+
     }
 
     public void realizarVenda() {
@@ -115,7 +125,12 @@ public class LivrariaVirtual {
         String cliente = scanner.nextLine();
 
         System.out.print("Quantidade de livros a comprar: ");
-        int quantidade = scanner.nextInt();
+        int quantidade;
+        try{
+            quantidade = scanner.nextInt();
+        }catch (Exception ex){
+            return;
+        }
         scanner.nextLine();
 
         Venda novaVenda = new Venda(cliente);
@@ -133,7 +148,7 @@ public class LivrariaVirtual {
                 System.out.print("Escolha o livro impresso (índice): ");
                 index = scanner.nextInt();
                 scanner.nextLine();
-                Impresso impressoEscolhido = impressos[index - 1];
+                Impresso impressoEscolhido = impressos.get(index - 1);
 
                 if (impressoEscolhido.getEstoque() > 0) {
                     novaVenda.addLivro(impressoEscolhido, index);
@@ -148,7 +163,7 @@ public class LivrariaVirtual {
                 System.out.print("Escolha o livro eletrônico (índice): ");
                 index = scanner.nextInt();
                 scanner.nextLine();
-                Eletronico eletronicoEscolhido = eletronicos[index - 1];
+                Eletronico eletronicoEscolhido = eletronicos.get(index - 1);
                 novaVenda.addLivro(eletronicoEscolhido, index);
                 numEletronicos++;
                 break;
@@ -176,8 +191,8 @@ public class LivrariaVirtual {
         System.out.println("   Índice   |   Título   |    Autores    |   Editora   |  Preço  |  Frete  | Estoque ");
         System.out.println("----------------------------------------------");
 
-        for (int i = 1; i <= impressos.length; i++) {
-            Impresso impresso = impressos[i - 1];
+        for (int i = 1; i <= impressos.size(); i++) {
+            Impresso impresso = impressos.get(i-1);
             if (impresso != null) {
                 System.out.println(i + "      " + impresso);
             }
@@ -192,10 +207,10 @@ public class LivrariaVirtual {
         System.out.println("   ÍNDICE   |   Título   |    Autores    |   Editora   |  Preço  |  Tamanho (KB)  |");
         System.out.println("----------------------------------------------");
 
-        for (int i = 1; i <= eletronicos.length; i++) {
-            Eletronico eletronico = eletronicos[i - 1];
+        for (int i = 1; i <= eletronicos.size(); i++) {
+            Eletronico eletronico = eletronicos.get(i-1);
             if (eletronico != null) {
-                System.out.println(i + "      " + eletronico);
+                System.out.println(i+ "      " + eletronico);
             }
         }
 
@@ -203,10 +218,10 @@ public class LivrariaVirtual {
     }
 
     public void listarVendas() {
-        if(!vendas.isEmpty()) {
+        if (!vendas.isEmpty()) {
             System.out.println("Vendas Realizadas:");
             for (Venda venda : vendas) {
-                if(venda != null) {
+                if (venda != null) {
                     System.out.println("Número da Venda: " + venda.getId());
                     System.out.println("Cliente: " + venda.getCliente());
                     System.out.println("Valor Total: R$" + venda.getValor());
@@ -238,7 +253,7 @@ public class LivrariaVirtual {
         if (!listaImpressos.isEmpty()) {
             numImpressos = listaImpressos.size();
             for (int i = 0; i < listaImpressos.size(); i++) {
-                impressos[i] = listaImpressos.get(i);
+                impressos.add(listaImpressos.get(i));
             }
         } else {
             System.out.println("Não há impressos.");
@@ -254,7 +269,7 @@ public class LivrariaVirtual {
         if (!listaEletronicos.isEmpty()) {
             numEletronicos = listaEletronicos.size();
             for (int i = 0; i < listaEletronicos.size(); i++) {
-                eletronicos[i] = listaEletronicos.get(i);
+                eletronicos.add(listaEletronicos.get(i));
             }
         } else {
             System.out.println("Não há livros eletrônicos.");

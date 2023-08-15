@@ -9,10 +9,13 @@ public class Eletronico extends Livro implements Serializable {
 
     public Eletronico() {}
     public Eletronico(
-            int indice, String titulo, String autores,
-            String editora, float preco, int tamanho
+            String titulo,
+            String autores,
+            String editora,
+            float preco,
+            int tamanho
     ) {
-        super(indice, titulo, autores, editora, preco);
+        super(titulo, autores, editora, preco);
         this.tamanho = tamanho;
     }
 
