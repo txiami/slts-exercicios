@@ -48,7 +48,7 @@ Thiago Sales={Alteração de Produto}<br>
 
 Francivaldo Lima={Livro, Venda }<br>
 Vitor R. Adriano={Livravia Virtual}<br>
-Thiago Sales={Impresso, Eletrônico}<br>
+Thiago Sales={Impresso, Eletrônico, testes e refatoração dos códigos}<br>
 
 <h2 align="center"> 
     Desafio – Locadora de Veículos
