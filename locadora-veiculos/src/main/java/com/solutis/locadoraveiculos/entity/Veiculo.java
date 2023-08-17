@@ -16,7 +16,6 @@ import lombok.*;
 @NoArgsConstructor
 @Table(name = "tb_veiculos")
 public class Veiculo {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -25,8 +24,11 @@ public class Veiculo {
     private String placa;
     private Boolean reservado;
     private String modelo;
+    @Enumerated(EnumType.STRING)
     private Marca marca;
+    @Enumerated(EnumType.STRING)
     private Categoria categoria;
+    @Enumerated(EnumType.STRING)
     private Acessorios acessorios;
 
 }
