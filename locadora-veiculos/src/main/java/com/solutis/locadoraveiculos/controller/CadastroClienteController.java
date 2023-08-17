@@ -15,7 +15,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping(value = "/cadastro")
+@RequestMapping(value = "/cadastroUsuario")
 public class CadastroClienteController {
 
     @Autowired
