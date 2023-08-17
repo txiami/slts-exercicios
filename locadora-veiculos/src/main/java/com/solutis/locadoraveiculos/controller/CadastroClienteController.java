@@ -3,6 +3,7 @@ package com.solutis.locadoraveiculos.controller;
 import com.solutis.locadoraveiculos.entity.Funcionario;
 import com.solutis.locadoraveiculos.entity.Motorista;
 import com.solutis.locadoraveiculos.service.CadastroClienteService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,7 @@ public class CadastroClienteController {
     }
 
     @PostMapping("/motorista")
+    @Operation(summary = "Cadastrar motoristas")
     public ResponseEntity<Motorista> criarMotorista(@RequestBody @Valid Motorista motorista) {
         Motorista novoMotorista = (Motorista) cadastroClienteService.salvarPessoa(motorista);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
@@ -34,6 +36,7 @@ public class CadastroClienteController {
     }
 
     @PostMapping("/funcionario")
+    @Operation(summary = "Cadastrar funcionários")
     public ResponseEntity<Funcionario> criarFuncionario(@RequestBody @Valid Funcionario funcionario) {
         Funcionario novoFuncionario = (Funcionario) cadastroClienteService.salvarPessoa(funcionario);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
