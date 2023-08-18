@@ -26,7 +26,7 @@ public class ApoliceSeguro {
     private boolean protecaoCausasNaturais;
 
     @NotNull
-    private boolean ProtecaoRoubo;
+    private boolean protecaoRoubo;
 
     @JsonIgnore
     @OneToOne(mappedBy = "apolice")
@@ -40,16 +40,15 @@ public class ApoliceSeguro {
         this.valorFranquia = valorFranquia;
         this.protecaoTerceiro = protecaoTerceiro;
         this.protecaoCausasNaturais = protecaoCausasNaturais;
-        ProtecaoRoubo = protecaoRoubo;
+        this.protecaoRoubo = protecaoRoubo;
         this.aluguel = aluguel;
     }
 
-    public ApoliceSeguro(BigDecimal valorFranquia, boolean protecaoTerceiro, boolean protecaoCausasNaturais, boolean protecaoRoubo, Aluguel aluguel) {
+    public ApoliceSeguro(BigDecimal valorFranquia, boolean protecaoTerceiro, boolean protecaoCausasNaturais, boolean protecaoRoubo) {
         this.valorFranquia = valorFranquia;
         this.protecaoTerceiro = protecaoTerceiro;
         this.protecaoCausasNaturais = protecaoCausasNaturais;
-        ProtecaoRoubo = protecaoRoubo;
-        this.aluguel = aluguel;
+        this.protecaoRoubo = protecaoRoubo;
     }
 
     public Long getId() {
@@ -85,11 +84,11 @@ public class ApoliceSeguro {
     }
 
     public boolean isProtecaoRoubo() {
-        return ProtecaoRoubo;
+        return protecaoRoubo;
     }
 
     public void setProtecaoRoubo(boolean protecaoRoubo) {
-        ProtecaoRoubo = protecaoRoubo;
+        this.protecaoRoubo = protecaoRoubo;
     }
 
     public Aluguel getAluguel() {
