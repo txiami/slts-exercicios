@@ -37,6 +37,14 @@ public abstract class Pessoa {
         this.sexo = sexo;
     }
 
+    public Pessoa(Long id, String nome, LocalDate dataNascimento, String cpf, Sexo sexo) {
+        this.id = id;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.sexo = sexo;
+    }
+
     public Long getId() {
         return id;
     }
