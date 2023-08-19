@@ -1,9 +1,9 @@
 package com.solutis.locadoraveiculos.repository;
 
-import com.solutis.locadoraveiculos.entity.Aluguel;
+import com.solutis.locadoraveiculos.entity.Veiculo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AluguelRepository extends JpaRepository<Aluguel, Long> {
+public interface CarrinhoRepository extends JpaRepository<Veiculo, Long> {
 }
