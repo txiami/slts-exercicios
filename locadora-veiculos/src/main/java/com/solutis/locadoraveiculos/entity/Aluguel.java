@@ -49,14 +49,14 @@ public class Aluguel {
     public Aluguel() {
     }
 
-    public Aluguel(Calendar dataPedido, LocalDate dataEntrega, LocalDate dataDevolucao, ApoliceSeguro apolice, Motorista motorista, Carro carro) {
+    public Aluguel(Calendar dataPedido, LocalDate dataEntrega, LocalDate dataDevolucao, BigDecimal valorTotal, ApoliceSeguro apolice, Motorista motorista, Carro carro) {
         this.dataPedido = dataPedido;
         this.dataEntrega = dataEntrega;
         this.dataDevolucao = dataDevolucao;
+        this.valorTotal = valorTotal;
         this.apolice = apolice;
         this.motorista = motorista;
         this.carro = carro;
-        calcularValorTotal();
     }
 
     public Aluguel(Long id, Calendar dataPedido, LocalDate dataEntrega, LocalDate dataDevolucao, ApoliceSeguro apolice, Motorista motorista, Carro carro) {
