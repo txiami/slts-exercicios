@@ -63,8 +63,6 @@ Thiago Sales={}<br>
 </h2>
 - Link: http://localhost:8080/swagger-ui.html
 
-  
-
 ## Autores
 [<img src="https://avatars.githubusercontent.com/u/54116971?v=4" width=115><br><sub>Francivaldo Lima</sub>](https://github.com/francivaldolima)
 
