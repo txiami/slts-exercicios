@@ -16,13 +16,13 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping(value = "/cadastroUsuario")
-public class CadastroClienteController {
+@RequestMapping(value = "/usuario")
+public class ClienteController {
 
     @Autowired
     private final CadastroClienteService cadastroClienteService;
 
-    public CadastroClienteController(CadastroClienteService cadastroClienteService) {
+    public ClienteController(CadastroClienteService cadastroClienteService) {
         this.cadastroClienteService = cadastroClienteService;
     }
 

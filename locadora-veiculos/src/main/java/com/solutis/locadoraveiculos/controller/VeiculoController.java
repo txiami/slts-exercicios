@@ -34,6 +34,11 @@ public class VeiculoController {
                 .filter(veiculo -> veiculo.getMarca() == marca)
                 .collect(Collectors.toList());
     }
+    @GetMapping("/buscar/id/{id}")
+    public Veiculo listarVeiculosPorId(@PathVariable Long id) {
+        Veiculo veiculo = veiculosService.listarVeiculoPorId(id);
+        return veiculo;
+    }
 
     @GetMapping("/buscar/modelo/{modelo}")
     public List<Veiculo> listarVeiculosPorModelo(@PathVariable String modelo) {
