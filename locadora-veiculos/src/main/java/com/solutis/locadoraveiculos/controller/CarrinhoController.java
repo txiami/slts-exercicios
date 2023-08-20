@@ -1,5 +1,5 @@
 package com.solutis.locadoraveiculos.controller;
-import com.solutis.locadoraveiculos.entity.Veiculo;
+import com.solutis.locadoraveiculos.entity.*;
 import com.solutis.locadoraveiculos.service.CarrinhoService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
@@ -15,7 +15,8 @@ import java.util.List;
 @RequestMapping(value = "/carrinho")
 public class CarrinhoController {
 
-    private final CarrinhoService carrinhoService;
+    @Autowired
+    private CarrinhoService carrinhoService;
 
     @Autowired
     public CarrinhoController(CarrinhoService carrinhoService) {
@@ -23,35 +24,39 @@ public class CarrinhoController {
     }
 
     @PostMapping("/adicionar")
-    @Operation(summary = "Adicionar veículo ao carrinho")
-    public ResponseEntity<Void> adicionarAoCarrinho(@RequestBody @Valid Veiculo veiculo) {
-        carrinhoService.adicionarVeiculoAoCarrinho(veiculo);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(veiculo.getId())
-                .toUri();
-        return ResponseEntity.created(location).build();
+    @Operation(summary = "Adicionar item ao carrinho")
+    public ItemCarrinho adicionarAoCarrinho(@RequestBody @Valid ItemCarrinho itemCarrinho) {
+        ItemCarrinho response = carrinhoService.adicionarItemAoCarrinho(itemCarrinho);
+        return response;
+    }
+
+    @PostMapping("/confirmar")
+    @Operation(summary = "Confirmar reserva de todos os veiculos do carrinho")
+    public String confirmarReserva(@RequestBody @Valid Motorista cliente) {
+        System.out.println("#############");
+        String reserva = carrinhoService.confirmarReserva(cliente);
+        return reserva;
     }
 
     @DeleteMapping("/remover/")
-    @Operation(summary = "Remover veículo do carrinho")
-    public ResponseEntity<Void> removerDoCarrinho(@RequestBody Veiculo veiculo) {
-        carrinhoService.RetirarVeiculoDoCarrinho(veiculo);
+    @Operation(summary = "Remover item do carrinho")
+    public ResponseEntity<Void> removerDoCarrinho(@RequestBody ItemCarrinho itemCarrinho) {
+        carrinhoService.RetirarVeiculoDoCarrinho(itemCarrinho);
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/editar/")
-    @Operation(summary = "Editar veículo no carrinho")
-    public ResponseEntity<Void> editarNoCarrinho(@RequestBody @Valid Veiculo veiculoEditar) {
-        carrinhoService.editarVeiculo(veiculoEditar);
+    @PutMapping("/editar")
+    @Operation(summary = "Editar item do carrinho")
+    public ResponseEntity<Void> editarNoCarrinho(@RequestBody @Valid ItemCarrinho itemCarrinho) {
+        carrinhoService.editarVeiculo(itemCarrinho);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/listar")
     @Operation(summary = "Listar todos os veículos no carrinho")
-    public ResponseEntity<List<Veiculo>> listarVeiculosNoCarrinho() {
-        List<Veiculo> veiculos = carrinhoService.listarTodosOsVeiculos();
-        return ResponseEntity.ok(veiculos);
+    public ResponseEntity<List<ItemCarrinho>> listarVeiculosNoCarrinho() {
+        List<ItemCarrinho> itensCarrinho = carrinhoService.listarTodosOsItens();
+        return ResponseEntity.ok(itensCarrinho);
     }
 
 

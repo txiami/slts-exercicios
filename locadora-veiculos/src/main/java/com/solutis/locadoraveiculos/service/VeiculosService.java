@@ -8,6 +8,7 @@ import com.solutis.locadoraveiculos.repository.VeiculosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,7 +29,19 @@ public class VeiculosService {
         repository.save(veiculoeditar);
     }
     public List<Veiculo> listarTodosOsVeiculos(){
-        return repository.findAll();
+
+        List<Veiculo> Allveiculos = repository.findAll();
+        List<Veiculo> veiculosOn = new ArrayList<>();
+        for(Veiculo veiculo : Allveiculos){
+            if(veiculo.getReservado() == false){
+                veiculosOn.add(veiculo);
+            }
+        }
+        return veiculosOn;
+    }
+
+    public Veiculo listarVeiculoPorId(Long id){
+        return repository.findById(id).get();
     }
 
     public List<Veiculo> listarVeiculosPorDisponibilidade(boolean disponibilidade){
