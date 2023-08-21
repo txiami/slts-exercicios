@@ -33,9 +33,15 @@ public class CarrinhoController {
     @PostMapping("/confirmar")
     @Operation(summary = "Confirmar reserva de todos os veiculos do carrinho")
     public String confirmarReserva(@RequestBody @Valid Motorista cliente) {
-        System.out.println("#############");
         String reserva = carrinhoService.confirmarReserva(cliente);
-        return reserva;
+        return "Olá " + cliente.getNome() + ", sua reserva foi confirmada!\n" + reserva;
+    }
+
+    @GetMapping("/termos")
+    @Operation(summary = "Buscar termos do contrato de aluguel")
+    public String buscarTermos(@RequestBody @Valid Motorista cliente) {
+        String reserva = carrinhoService.buscarTermos(cliente);
+        return "Olá " + cliente.getNome() + ", seu contrato de aluguel atual é:\n" + reserva;
     }
 
     @DeleteMapping("/remover/")

@@ -3,6 +3,7 @@ package com.solutis.locadoraveiculos.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,13 +34,20 @@ public class Reserva {
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Olá " + nomeCliente + ", sua reserva no valor de: R$ "+ preco + " foi confirmada!\n");
         stringBuilder.append("Reserva:");
         stringBuilder.append("\n  Cliente:").append(nomeCliente);
         stringBuilder.append("\n  Preco: R$ ").append(preco);
         stringBuilder.append("\n  Veiculos Selecionados: ");
-        for (Veiculo item : veiculosReservados) {
-            stringBuilder.append("\n    ").append(item.getModelo() +" "+ item.getCor());
+        for (Veiculo veiculoReservado : veiculosReservados) {
+            for(ItemCarrinho itemCarrinho : veiculoList){
+
+                if(itemCarrinho.getCarroId() == veiculoReservado.getId()){
+                    stringBuilder.append("\n    ").append(
+                            veiculoReservado.getModelo() +" "+
+                            veiculoReservado.getCor() + " Alugado por: R$ " +
+                            itemCarrinho.getPreco() + " Durante: " + (Period.between(itemCarrinho.getDataInicial(), itemCarrinho.getDataFinal()).getDays()) + " dias");
+                }
+            }
         }
         return stringBuilder.toString();
     }
