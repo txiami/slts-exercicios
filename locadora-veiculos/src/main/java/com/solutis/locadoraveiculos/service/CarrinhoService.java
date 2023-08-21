@@ -61,9 +61,16 @@ public class CarrinhoService {
                 }
             }
         }
-        //repository.deleteAll();
+        repository.deleteAll();
         Reserva reserva = new Reserva(0, cliente.getNome(),valorTotal, repository.findAll());
 
         return reserva.toString(veiculosRepository.findAll());
     }
+
+    public String buscarTermos(Motorista cliente) {
+        double valorTotal = repository.findAll().stream().mapToDouble(ItemCarrinho::getPreco).sum();
+        Reserva reserva = new Reserva(0, cliente.getNome(),valorTotal, repository.findAll());
+        return reserva.toString(veiculosRepository.findAll());
+    }
+
 }
