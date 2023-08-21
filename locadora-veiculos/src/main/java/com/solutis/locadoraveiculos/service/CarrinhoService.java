@@ -49,24 +49,6 @@ public class CarrinhoService {
         return repository.findAll();
     }
 
-
-    public String confirmarReserva(Motorista cliente) {
-        double valorTotal = repository.findAll().stream().mapToDouble(ItemCarrinho::getPreco).sum();
-        List<Veiculo> veiculos = veiculosRepository.findAll();
-        for(ItemCarrinho itemCarrinho : repository.findAll()){
-            for(Veiculo veiculo : veiculos){
-                if(veiculo.getId() == itemCarrinho.getCarroId()){
-                    veiculo.setReservado(true);
-                    veiculosRepository.save(veiculo);
-                }
-            }
-        }
-        repository.deleteAll();
-        Reserva reserva = new Reserva(0, cliente.getNome(),valorTotal, repository.findAll());
-
-        return reserva.toString(veiculosRepository.findAll());
-    }
-
     public String buscarTermos(Motorista cliente) {
         double valorTotal = repository.findAll().stream().mapToDouble(ItemCarrinho::getPreco).sum();
         Reserva reserva = new Reserva(0, cliente.getNome(),valorTotal, repository.findAll());
