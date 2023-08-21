@@ -5,6 +5,7 @@ import com.solutis.locadoraveiculos.entity.enums.Acessorios;
 import com.solutis.locadoraveiculos.entity.enums.Categoria;
 import com.solutis.locadoraveiculos.entity.enums.Marca;
 import com.solutis.locadoraveiculos.service.VeiculosService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,16 +19,19 @@ public class VeiculoController {
     private VeiculosService veiculosService;
 
     @PostMapping()
+    @Operation(summary = "Inserir dados de um veiculo")
     public void cadastrarVeiculo(@RequestBody Veiculo veiculo){
         veiculosService.cadastrarVeiculo(veiculo);
     }
 
     @GetMapping("/buscar")
+    @Operation(summary = "Listar veiculos")
     public List<Veiculo> listarVeiculos(){
         return veiculosService.listarTodosOsVeiculos();
     }
 
     @GetMapping("/buscar/marca/{marca}")
+    @Operation(summary = "Buscar veiculo por marca")
     public List<Veiculo> listarVeiculosPorMarca(@PathVariable Marca marca) {
         List<Veiculo> veiculos = veiculosService.listarTodosOsVeiculos();
         return veiculos.stream()
@@ -35,12 +39,14 @@ public class VeiculoController {
                 .collect(Collectors.toList());
     }
     @GetMapping("/buscar/id/{id}")
+    @Operation(summary = "Buscar veiculo por ID")
     public Veiculo listarVeiculosPorId(@PathVariable Long id) {
         Veiculo veiculo = veiculosService.listarVeiculoPorId(id);
         return veiculo;
     }
 
     @GetMapping("/buscar/modelo/{modelo}")
+    @Operation(summary = "Buscar veiculo por modelo")
     public List<Veiculo> listarVeiculosPorModelo(@PathVariable String modelo) {
         List<Veiculo> veiculos = veiculosService.listarTodosOsVeiculos();
         return veiculos.stream()
@@ -49,6 +55,7 @@ public class VeiculoController {
     }
 
     @GetMapping("/buscar/acessorios/{acessorio}")
+    @Operation(summary = "Buscar veiculo por acessorio")
     public List<Veiculo> listarVeiculosPorAcessorios(@PathVariable Acessorios acessorio) {
         List<Veiculo> veiculos = veiculosService.listarTodosOsVeiculos();
         return veiculos.stream()
@@ -57,6 +64,7 @@ public class VeiculoController {
     }
 
     @GetMapping("/buscar/categoria/{categoria}")
+    @Operation(summary = "Buscar veiculo por categoria")
     public List<Veiculo> listarVeiculosPorCategoria(@PathVariable Categoria categoria) {
         List<Veiculo> veiculos = veiculosService.listarTodosOsVeiculos();
         return veiculos.stream()

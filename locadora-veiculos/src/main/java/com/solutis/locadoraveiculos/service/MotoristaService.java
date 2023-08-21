@@ -44,7 +44,7 @@ public class MotoristaService {
     public void updateData(Motorista entity, Motorista obj) {
         entity.setNome(obj.getNome());
         entity.setDataNascimento(obj.getDataNascimento());
-        entity.setCpf(obj.getCpf());
+        entity.setEmail(obj.getEmail());
         entity.setNumeroCNH(obj.getNumeroCNH());
     }
 }
