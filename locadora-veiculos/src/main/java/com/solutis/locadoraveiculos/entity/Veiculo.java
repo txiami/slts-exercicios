@@ -20,7 +20,10 @@ public class Veiculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String cor;
+    @Column(unique = true)
+    private String urlImagem;
     private Float preco;
+    @Column(unique = true)
     private String placa;
     private Boolean reservado;
     private String modelo;
@@ -30,5 +33,7 @@ public class Veiculo {
     private Categoria categoria;
     @Enumerated(EnumType.STRING)
     private Acessorios acessorios;
+    private String descricao;
+    private String especificacoes;
 
 }
