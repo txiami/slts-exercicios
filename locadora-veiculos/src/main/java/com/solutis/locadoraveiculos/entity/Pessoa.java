@@ -47,10 +47,11 @@ public abstract class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(String nome, LocalDate dataNascimento, String cpf, Sexo sexo, String email) {
+    public Pessoa(String nome, LocalDate dataNascimento, String cpf, String email, Sexo sexo) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
+        this.email = email;
         this.sexo = sexo;
     }
 }

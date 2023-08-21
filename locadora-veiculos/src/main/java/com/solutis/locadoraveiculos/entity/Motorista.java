@@ -22,8 +22,8 @@ public class Motorista extends Pessoa{
     public Motorista() {
     }
 
-    public Motorista(String nome, LocalDate dataNascimento, String cpf, Sexo sexo, String numeroCNH, String email) {
-        super(nome, dataNascimento, cpf, sexo, email);
+    public Motorista(String nome, LocalDate dataNascimento, String cpf, String email, Sexo sexo, String numeroCNH) {
+        super(nome, dataNascimento, cpf, email, sexo);
         this.numeroCNH = numeroCNH;
     }
 
