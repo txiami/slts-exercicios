@@ -23,26 +23,25 @@ public class Veiculo {
     @NotBlank(message = "O campo cor é obrigatório")
     private String cor;
     @Column(unique = true)
-    @NotBlank
+    @NotBlank(message = "O campo urlImagem é obrigatório")
     private String urlImagem;
     @NotNull
     private Float preco;
     @Column(unique = true)
-    @NotBlank
+    @NotBlank(message = "O campo placa é obrigatório")
     private String placa;
     private Boolean reservado;
-    @NotBlank
+    @NotBlank(message = "O campo modelo é obrigatório")
     private String modelo;
-    @NotNull
+    @NotNull(message = "O campo marca é obrigatório")
     @Enumerated(EnumType.STRING)
     private Marca marca;
-    @NotNull
+    @NotNull(message = "O campo categoria é obrigatório")
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
-    @NotNull
+    @NotNull(message = "O campo acessorios é obrigatório")
     @Enumerated(EnumType.STRING)
     private Acessorios acessorios;
     private String descricao;
     private String especificacoes;
-
 }
