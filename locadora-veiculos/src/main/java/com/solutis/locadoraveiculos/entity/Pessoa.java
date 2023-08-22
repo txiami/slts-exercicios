@@ -21,24 +21,24 @@ public abstract class Pessoa {
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "inc")
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "O campo nome é obrigatório")
     private String nome;
 
-    @NotNull
+    @NotNull(message = "O campo data de nascimento é obrigatório")
     @PastOrPresent
     private LocalDate dataNascimento;
 
-    @NotBlank
+    @NotBlank(message = "O campo cpf é obrigatório")
     @Column(unique = true)
     @CPF
     private String cpf;
 
-    @NotBlank
+    @NotBlank(message = "O campo email é obrigatório")
     @Column(unique = true)
     @Email
     private String email;
 
-    @NotNull
+    @NotNull(message = "O campo sexo é obrigatório")
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
@@ -47,10 +47,11 @@ public abstract class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(String nome, LocalDate dataNascimento, String cpf, Sexo sexo, String email) {
+    public Pessoa(String nome, LocalDate dataNascimento, String cpf, String email, Sexo sexo) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
+        this.email = email;
         this.sexo = sexo;
     }
 }

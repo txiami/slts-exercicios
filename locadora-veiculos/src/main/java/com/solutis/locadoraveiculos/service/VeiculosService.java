@@ -7,6 +7,7 @@ import com.solutis.locadoraveiculos.entity.enums.Marca;
 import com.solutis.locadoraveiculos.repository.VeiculosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ public class VeiculosService {
         this.repository = repository;
     }
     public void cadastrarVeiculo(Veiculo veiculo){
+
         repository.save(veiculo);
     }
     public void deletarVeiculo(Veiculo veiculo){

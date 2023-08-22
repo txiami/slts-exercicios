@@ -6,7 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
 
 import java.net.URI;
 import java.util.List;
@@ -28,13 +28,6 @@ public class CarrinhoController {
     public ItemCarrinho adicionarAoCarrinho(@RequestBody @Valid ItemCarrinho itemCarrinho) {
         ItemCarrinho response = carrinhoService.adicionarItemAoCarrinho(itemCarrinho);
         return response;
-    }
-
-    @PostMapping("/confirmar")
-    @Operation(summary = "Confirmar reserva de todos os veiculos do carrinho")
-    public String confirmarReserva(@RequestBody @Valid Motorista cliente) {
-        String reserva = carrinhoService.confirmarReserva(cliente);
-        return "Olá " + cliente.getNome() + ", sua reserva foi confirmada!\n" + reserva;
     }
 
     @GetMapping("/termos")
